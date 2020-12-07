@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"com.hedgehogs"},{"l":"com.hedgehogs.entities"},{"l":"com.hedgehogs.repositories"},{"l":"com.hedgehogs.services"}]

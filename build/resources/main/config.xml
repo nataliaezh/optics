@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+  http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="lensesRepository" class="com.hedgehogs.repositories.LensesRepository" />
+	<bean id="lensesService" class="com.hedgehogs.services.LensesService">
+		<property name="lensesRepository">
+			<ref bean="lensesRepository" />
+		</property>
+		</bean>
+	<bean id="glassesRepository" class="com.hedgehogs.repositories.GlassesRepository" />
+	<bean id="glassesService" class="com.hedgehogs.services.GlassesService" autowire="byName">
+				<property name="glassesRepository"> <ref bean="glassesRepository" />
+		</property>
+	</bean>
+</beans>
