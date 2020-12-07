@@ -11,6 +11,7 @@ import java.util.Objects;
 // по индивидуальному заказу в оптике. Реализован метод сборки очков, состоящих из линз и оправы
 
 public class Glasses {
+	private Long id;
 	private Rim rim;
 	private Lenses lenses;
 
@@ -21,9 +22,18 @@ public class Glasses {
 		this.lenses = lenses;
 	}
 
-	public Glasses(Rim rim, Lenses lenses) {
+	public Glasses(Long id, Rim rim, Lenses lenses) {
+		this.id = id;
 		this.rim = rim;
 		this.lenses = lenses;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public Rim getRim() {
@@ -40,12 +50,6 @@ public class Glasses {
 
 	public void setLenses(Lenses lenses) {
 		this.lenses = lenses;
-	}
-
-	public void doGlasses() {
-		rim.choosing();
-		lenses.processing();
-		System.out.println("Ваши очки готовы!");
 	}
 
 	@Override
