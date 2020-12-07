@@ -1,5 +1,8 @@
 package com.hedgehogs.entities;
 
+import com.hedgehogs.entities.Lenses;
+import com.hedgehogs.entities.Rim;
+
 import java.util.Objects;
 
 /**
@@ -11,6 +14,7 @@ import java.util.Objects;
 // по индивидуальному заказу в оптике. Реализован метод сборки очков, состоящих из линз и оправы
 
 public class Glasses {
+	private Long id;
 	private Rim rim;
 	private Lenses lenses;
 
@@ -21,9 +25,18 @@ public class Glasses {
 		this.lenses = lenses;
 	}
 
-	public Glasses(Rim rim, Lenses lenses) {
+	public Glasses(Long id, Rim rim, Lenses lenses) {
+		this.id = id;
 		this.rim = rim;
 		this.lenses = lenses;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public Rim getRim() {
@@ -42,12 +55,6 @@ public class Glasses {
 		this.lenses = lenses;
 	}
 
-	public void doGlasses() {
-		rim.choosing();
-		lenses.processing();
-		System.out.println("Ваши очки готовы!");
-	}
-
 	@Override
 	public boolean equals(Object o) {
 		if (this == o) {
@@ -59,7 +66,7 @@ public class Glasses {
 		Glasses glasses = (Glasses) o;
 		return Objects.equals(rim, glasses.rim) &&
 			   Objects.equals(lenses, glasses.lenses);
-		}
+	}
 
 	@Override
 	public int hashCode() {

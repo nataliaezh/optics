@@ -4,24 +4,15 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
   http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-	<bean id="rim" class="com.hedgehogs.entities.Rim" />
-	<bean id="lenses" class="com.hedgehogs.entities.Lenses" />
-	<bean id="sunGlasses" class="com.hedgehogs.entities.Sunglasses" />
 	<bean id="lensesRepository" class="com.hedgehogs.repositories.LensesRepository" />
 	<bean id="lensesService" class="com.hedgehogs.services.LensesService">
 		<property name="lensesRepository">
 			<ref bean="lensesRepository" />
 		</property>
-		<property name="lenses">
-			<ref bean="lenses" />
-		</property>
 	</bean>
-	<bean id="glasses" class="com.hedgehogs.entities.Glasses">
-		<property name="lenses">
-			<ref bean="lenses" />
-		</property>
-		<property name="rim">
-			<ref bean="rim" />
+	<bean id="glassesRepository" class="com.hedgehogs.repositories.GlassesRepository" />
+	<bean id="glassesService" class="com.hedgehogs.services.GlassesService" autowire="byName">
+		<property name="glassesRepository"> <ref bean="glassesRepository" />
 		</property>
 	</bean>
 </beans>
