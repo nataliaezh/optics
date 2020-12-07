@@ -1,10 +1,12 @@
 package com.hedgehogs.repositories;
 
 import com.hedgehogs.entities.Lenses;
+import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Repository
 public class LensesRepository {
 	List<Lenses> glassesList = new ArrayList<>();
 	public List<Lenses> findAll(){ return glassesList;	}

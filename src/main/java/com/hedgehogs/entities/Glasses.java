@@ -1,12 +1,14 @@
 package com.hedgehogs.entities;
 
 import com.hedgehogs.services.LensesService;
+import org.springframework.stereotype.Component;
 
 import java.util.Objects;
 
 /**
  * @author natalya_ezhkova@mail.ru
  */
+@Component
 public class Glasses {
 	private Rim rim;
 	private Lenses lenses;

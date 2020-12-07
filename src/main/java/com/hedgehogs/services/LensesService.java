@@ -2,12 +2,14 @@ package com.hedgehogs.services;
 
 import com.hedgehogs.entities.Lenses;
 import com.hedgehogs.repositories.LensesRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 /**
  * @author natalya_ezhkova@mail.ru
  */
+@Service
 public class LensesService {
 	private LensesRepository lensesRepository;
 

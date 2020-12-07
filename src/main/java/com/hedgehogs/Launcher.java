@@ -6,27 +6,20 @@ import com.hedgehogs.repositories.LensesRepository;
 import com.hedgehogs.services.LensesService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.core.jmx.Server;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import java.net.URL;
+import java.security.ProtectionDomain;
 
 /**
  * @author natalya_ezhkova@mail.ru
  */
+@Configuration
+@ComponentScan("com.hedgehogs")
 public class Launcher {
-	private static final Logger log  = LogManager.getLogger(Launcher.class.getName());
-	public static void main(String[] args) {
-		ApplicationContext context = new AnnotationConfigApplicationContext(Config.class);
-		Glasses glasses = context.getBean("glasses", Glasses.class);
-		Lenses lenses  = context.getBean("lenses", Lenses.class);
-		LensesRepository lensesRepository = context.getBean("lensesRepository", LensesRepository.class);
-		LensesService lensesService = context.getBean("lensesService", LensesService.class);
-			lenses.setId(1L);
-			lenses.setDiopters("+1");
-			lenses.setSize("5sm");
-			log.info("create new lenses");
-		System.out.println(lenses);
-		System.out.println("Сохранение заказа на изготовление со следующими параметрами: " + glasses.getLensesService().save(lenses).toString());
-		glasses.doGlasses();
-	}
 }

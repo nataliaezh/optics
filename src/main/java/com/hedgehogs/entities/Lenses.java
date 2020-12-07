@@ -1,10 +1,13 @@
 package com.hedgehogs.entities;
 
+import org.springframework.stereotype.Component;
+
 import java.util.Objects;
 
 /**
  * @author natalya_ezhkova@mail.ru
  */
+@Component
 public class Lenses {
 	private Long id;
 	private String diopters;
