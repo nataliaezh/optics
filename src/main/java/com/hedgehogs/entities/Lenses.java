@@ -5,6 +5,9 @@ import java.util.Objects;
 /**
  * @author natalya_ezhkova@mail.ru
  */
+
+//Сущность Линзы, описывает линзы, которые будут вставлены в очки при их изготовлении
+
 public class Lenses {
 	private Long id;
 	private String diopters;

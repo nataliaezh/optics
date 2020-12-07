@@ -6,10 +6,14 @@
 
 	<bean id="rim" class="com.hedgehogs.entities.Rim" />
 	<bean id="lenses" class="com.hedgehogs.entities.Lenses" />
+	<bean id="sunGlasses" class="com.hedgehogs.entities.Sunglasses" />
 	<bean id="lensesRepository" class="com.hedgehogs.repositories.LensesRepository" />
 	<bean id="lensesService" class="com.hedgehogs.services.LensesService">
 		<property name="lensesRepository">
 			<ref bean="lensesRepository" />
+		</property>
+		<property name="lenses">
+			<ref bean="lenses" />
 		</property>
 	</bean>
 	<bean id="glasses" class="com.hedgehogs.entities.Glasses">
@@ -18,9 +22,6 @@
 		</property>
 		<property name="rim">
 			<ref bean="rim" />
-		</property>
-		<property name="lensesService">
-			<ref bean="lensesService" />
 		</property>
 	</bean>
 </beans>

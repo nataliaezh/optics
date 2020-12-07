@@ -1,16 +1,19 @@
 package com.hedgehogs.entities;
 
-import com.hedgehogs.services.LensesService;
-
 import java.util.Objects;
 
 /**
  * @author natalya_ezhkova@mail.ru
+ *
  */
+
+////Сущность Очки, описывает очки, которые будут изготовлены
+// по индивидуальному заказу в оптике. Реализован метод сборки очков, состоящих из линз и оправы
+
 public class Glasses {
 	private Rim rim;
 	private Lenses lenses;
-	private LensesService lensesService;
+
 	public Glasses() {
 	}
 
@@ -21,10 +24,6 @@ public class Glasses {
 	public Glasses(Rim rim, Lenses lenses) {
 		this.rim = rim;
 		this.lenses = lenses;
-	}
-
-		public Glasses(LensesService lensesService) {
-		this.lensesService = lensesService;
 	}
 
 	public Rim getRim() {
@@ -43,19 +42,10 @@ public class Glasses {
 		this.lenses = lenses;
 	}
 
-	public LensesService getLensesService() {
-		return lensesService;
-	}
-
-	public void setLensesService(LensesService lensesService) {
-		this.lensesService = lensesService;
-	}
-
 	public void doGlasses() {
 		rim.choosing();
 		lenses.processing();
 		System.out.println("Ваши очки готовы!");
-		System.out.println("Все заказы в базе:" + lensesService.getLensesRepository().findAll());
 	}
 
 	@Override
@@ -68,13 +58,12 @@ public class Glasses {
 		}
 		Glasses glasses = (Glasses) o;
 		return Objects.equals(rim, glasses.rim) &&
-			   Objects.equals(lenses, glasses.lenses) &&
-			   Objects.equals(lensesService, glasses.lensesService);
-	}
+			   Objects.equals(lenses, glasses.lenses);
+		}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(rim, lenses, lensesService);
+		return Objects.hash(rim, lenses);
 	}
 
 	@Override
@@ -82,7 +71,6 @@ public class Glasses {
 		return "Glasses{" +
 			   "rim=" + rim +
 			   ", lenses=" + lenses +
-			   ", lensesService=" + lensesService +
 			   '}';
 	}
 }

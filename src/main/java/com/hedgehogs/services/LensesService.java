@@ -8,14 +8,19 @@ import java.util.List;
 /**
  * @author natalya_ezhkova@mail.ru
  */
+
+//Бизнес-сдлой слой для сущности Линзы
+
 public class LensesService {
 	private LensesRepository lensesRepository;
+	private Lenses lenses;
 
 	public LensesService() {
 	}
 
-	public LensesService(LensesRepository lensesRepository) {
+	public LensesService(LensesRepository lensesRepository, Lenses lenses) {
 		this.lensesRepository = lensesRepository;
+		this.lenses = lenses;
 	}
 
 	public LensesRepository getLensesRepository() {
@@ -26,21 +31,30 @@ public class LensesService {
 		this.lensesRepository = lensesRepository;
 	}
 
-	public Lenses geLensestById(Long id) {
+	public Lenses getLenses() {
+		return lenses;
+	}
+
+	public void setLenses(Lenses lenses) {
+		this.lenses = lenses;
+	}
+	//Чтение
+	public Lenses getLensestById(Long id) {
 		Lenses lenses = lensesRepository.findByOne(id);
 		return lenses;
 	}
 	public List<Lenses> getAllLenses(){
 		return lensesRepository.findAll();
 	}
-
-	public  Lenses save(Lenses lenses){
+	//Запись и обновление
+	public  Lenses saveOrUpdateLenses(Lenses lenses){
 		if(lenses==null){
 			return null;
-		}return lensesRepository.save(lenses);
+		}return lensesRepository.saveOrUpdate(lenses);
 	}
-
-	public void deleteLenses(Lenses lenses){
+	//Удаление
+	public void deleteLenses(Long id){
+		Lenses lenses = lensesRepository.findByOne(id);
 		lensesRepository.delete(lenses);
 	}
 }
